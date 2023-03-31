@@ -11,10 +11,8 @@ graph TD
     %% AGENT --> |HTTP/sampling| LIB
     AGENT --> |gRPC| COLLECTOR[Jaeger Collector]
     %% COLLECTOR --> |gRPC/sampling| AGENT
-    SDK["OpenTelemetry SDK (recommended)"] --> |UDP| AGENT
     SDK --> |HTTP or gRPC| COLLECTOR
     COLLECTOR --> STORE[Storage]
-    COLLECTOR --> |gRPC| PLUGIN[Storage Plugin]
     PLUGIN --> STORE
     QUERY[Jaeger Query Service] --> STORE
     QUERY --> |gRPC| PLUGIN
