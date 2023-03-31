@@ -11,9 +11,7 @@ graph TD
     %% AGENT --> |HTTP/sampling| LIB
     AGENT --> |gRPC| COLLECTOR[Jaeger Collector]
     %% COLLECTOR --> |gRPC/sampling| AGENT
-    SDK --> |HTTP or gRPC| COLLECTOR
     COLLECTOR --> STORE[Storage]
-    PLUGIN --> STORE
     QUERY[Jaeger Query Service] --> STORE
     QUERY --> |gRPC| PLUGIN
     UI[Jaeger UI] --> |HTTP| QUERY
